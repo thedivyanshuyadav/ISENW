@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ISENW</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Pacifico&family=Sarabun&family=Quicksand&family=Acme&family=Kanit&fdisplay=swap" rel="stylesheet"><style>
+        body{
+            width: 100%;
+            /*background: rgb(253,253,256);*/
+            /*color: azure;*/
+
+            color:darkslategray;
+            margin:0px;
+            padding: 0px;
+        }
+        .background-image{
+
+            /*background: red;*/
+            z-index: -1;
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            /*border:red 2px solid;*/
+            background-image: url("{{   MEDIA_URL }}\\icml\\bg.jpg");
+            background-size: 55%;
+            background-repeat: no-repeat;
+            background-position: bottom right;
+            top:0px;
+            right:30px;
+            /*-webkit-filter: blur(5px);*/
+  /*-moz-filter: blur(5px);*/
+  /*-o-filter: blur(5px);*/
+  /*-ms-filter: blur(5px);*/
+  /*filter: blur(5px);*/
+        }
+
+        a{
+            /*color:azure;*/
+            color:darkslategrey;
+            text-decoration: none;
+        }
+        #top{
+            width: 100%;
+            font-size: 55px;
+            font-family: "Fredoka One";
+            margin-top: 25px;
+        }
+        #head{
+            margin-left: auto;
+            margin-right: auto;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-shadow: 5px -6px rgba(149,159,164,0.24);
+            background: linear-gradient(to right, black ,black,deepskyblue,deepskyblue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+        }
+        #back{
+            font-size: 20px;
+            font-family: "Sarabun";
+            /*border:azure 2px solid;*/
+            border: darkslategrey 2px solid;
+            border-radius: 10px;
+            max-height:15px;
+            width: 40px;
+            padding:10px 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 50px;
+            margin-left: auto;
+            text-decoration: none;
+
+        }
+        #back:hover{
+            background: deepskyblue;
+            font-style: italic;
+        }
+
+        form{
+            /*border:deeppink 2px solid;*/
+            margin-bottom: auto;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        input,button{
+            font-size:25px;
+            /*border:azure 2px solid;*/
+
+            border: darkslategrey 2px solid;
+
+            text-align: center;
+            align-items: center;
+        }
+        input{
+            width:40%;
+            border-radius: 15px 0px 0px 15px;
+            cursor: pointer;
+        }
+        #upload{
+            background: rgba(132,208,241,0.27);
+            /*color:azure;*/
+            color:darkslategrey;
+            height: 40px;
+            border: darkslategrey 2px solid;
+            border-left: none;
+            padding: 3px 25px 3px 25px;
+            border-radius: 0px 15px 15px 0px;
+        }
+        #upload:hover{
+            background: rgba(67,187,249,0.47);
+            zoom:102%;
+            font-style: oblique;
+        }
+
+
+        #prediv{
+            display: flex;
+            width: 67%;
+
+        }
+
+    #upperpred{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+        .info-img{
+            width:auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        #uploadImgDiv{
+            display: flex;
+            justify-content: right;
+            /*padding-left: 14%;*/
+        }
+        img{
+            max-height: 350px;
+            /*border: azure 1px solid;*/
+            border: darkslategrey 2px solid;
+            border-radius: 10px;
+        }
+        #info-parent{
+            display: flex;
+            justify-content: center;
+
+        }
+        #info{
+            width:68%;
+            /*border: azure 2px solid;*/
+            /*border: darkslategrey 2px solid;*/
+            margin-top: 10px;
+            margin-bottom: 50px;
+            font-size: 20px;
+            font-family: "Quicksand";
+            padding: 25px 25px;
+            background: rgba(102,218,240,0.06);
+            /*background: white;*/
+        }
+        #uploadImgDiv{
+            max-width: 65%;
+        }
+        #uploadImg{
+            max-width: 95%;
+        }
+        #titlepred{
+            font-family: "Acme";
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            letter-spacing: 4px;
+            margin-bottom: 50px;
+        }
+
+    #chart{
+
+        height: 100%;
+        width: auto;
+        border: none;
+    }
+    #chartdiv{
+        display: block;
+        margin-left:auto;
+        margin-right: auto;
+
+        /*justify-content: right;*/
+    }
+    #OR{
+        font-size: 30px;
+        font-family: "Kanit";
+        font-weight: bolder;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+    #inputurl{
+        height: 34px;
+        background: rgba(255,255,255,0.08);
+    }
+
+        #name{
+
+            position: fixed;
+            right:8%;
+            top:45%;
+            width: max-content;
+            writing-mode: vertical-rl;
+            font-size: 18px;
+            font-family: "Pacifico";
+            letter-spacing: 2px;
+        }
+        h1{
+            position: absolute;
+            text-decoration: underline;
+        }
+
+
+    </style>
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "favicon/apple-touch-icon.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "favicon/favicon-32x32.png"%}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "favicon/favicon-16x16.png"%}">
+    <link rel="manifest" href="{% static "favicon/site.webmanifest"%}">
+    <link rel="shortcut icon" href="{% static 'favicon/favicon.ico' %}" />
+</head>
+<body>
+{% if toupload %}
+<div class="background-image"></div>
+{% endif %}
+<div class="content">
+<div id="name">
+    Divyanshu Yadav
+</div>
+<div id="top">
+    {% if toupload %}
+
+        <div id="head">IMAGE SEARCH ENGINE</div>
+    {% endif %}
+
+</div>
+{% if toupload %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="myfile">
+    <button type="submit" id="upload" name="filebtn">Go</button>
+</form>
+    <div id="OR">OR</div>
+    <form method="post">
+    {% csrf_token %}
+    <input type="text" name="urltext" placeholder="Enter Image url here" id="inputurl"><br>
+    <button type="submit" id="upload" name="urlbtn">Go</button>
+
+</form>
+{% else %}
+
+
+    <div id="titlepred">
+            <h1 style="text-transform: uppercase;
+            background: linear-gradient(to right, black ,dimgray,skyblue,deepskyblue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;">{{ title }}</h1>
+        <a href="http://127.0.0.1:8000/" id="back">BACK</a>
+        </div><br>
+    <div id="upperpred">
+<div id="prediv">
+    <div class="info-img" id="uploadImgDiv">
+        <img src="{{ imgpath }}" id="uploadImg">
+    </div>
+    <div class="info-img" id="chartdiv">
+
+        <img src="{{ predictedPie }}" id="chart">
+
+</div>
+    </div>
+</div>
+
+    <div id="info-parent">
+<div id="info">{{ info |safe }}</div>
+</div>
+
+{% endif %}
+</div>
+
+</body>
+</html>
