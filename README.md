@@ -14,20 +14,15 @@ Some of tools used in this project are :
 * Pretrained Models <br>
 * OpenCV
 <br>
-<img align="right" src="/Demo.gif" width="75%" height="400"/>
   
 # Demo
-<b>Note:</b> The Images shown in the demo are for explaination. ISENW is **not** limited to these images only. Fork this repo and check with your own images dataset.
-</div>
+<p align="center">
+<img  src="/Demo.gif" width="75%" height="400"/>
+</p>
+
+<b>Note:</b> The Images shown in the demo are for explaination. ISENW is **not** limited to these images only. Fork this repo and check with your own images dataset. 
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
 
 # Setup Local Environment
 1. Fork this repo and clone your fork :
