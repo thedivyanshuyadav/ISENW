@@ -1,15 +1,16 @@
 from django.db import models
 from .storage import OverwriteStorage
 
-from django.conf import settings
 # Create your models here.
 import urllib,os
 
 class File(models.Model):
+    id = models.AutoField(primary_key=True)
     file=models.FileField(upload_to="icml\\images",storage=OverwriteStorage())
 
 
 class Item(models.Model):
+    id = models.AutoField(primary_key=True)
     image_file = models.ImageField(upload_to='images')
     image_url = models.URLField()
 
