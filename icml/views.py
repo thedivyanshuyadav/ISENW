@@ -8,11 +8,12 @@ from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 
 # import the necessary packages
-from keras.preprocessing import image
-from keras.applications import Xception,ResNet50,DenseNet201
-from keras.applications.xception import preprocess_input
-from keras.applications.xception import decode_predictions
+from tensorflow.keras.preprocessing import image
+from tensorflow.keras.applications import Xception,ResNet50,DenseNet201
+from tensorflow.keras.applications.xception import preprocess_input
+from tensorflow.keras.applications.xception import decode_predictions
 import numpy as np
+
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import matplotlib.pyplot as plt
