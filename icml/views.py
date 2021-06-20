@@ -19,7 +19,6 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 import urllib,os
-import requests
 
 model = Xception()
 model.load_weights('templates/modelweight/xception_weight.h5')
