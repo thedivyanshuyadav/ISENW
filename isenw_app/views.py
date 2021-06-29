@@ -18,8 +18,8 @@ import requests
 
 wikipedia.set_lang("en")
 INPUT_SHAPE = (224, 224, 3)
-model = ResNet50(weights=None,input_shape=INPUT_SHAPE)
-model.load_weights('isenw_app/modelweight/xception_weight.h5')
+model = ResNet50(weights='imagenet',input_shape=INPUT_SHAPE)
+# model.load_weights('isenw_app/modelweight/xception_weight.h5')
 
 
 # Create your views here.
