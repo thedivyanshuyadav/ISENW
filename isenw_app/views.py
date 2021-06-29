@@ -17,7 +17,8 @@ from .forms import ContentForm
 
 wikipedia.set_lang("en")
 INPUT_SHAPE = (224, 224, 3)
-model = ResNet50(weights='imagenet',input_shape=INPUT_SHAPE)
+model = ResNet50(weights=None,input_shape=INPUT_SHAPE)
+model.load_weights('isenw_app/modelweight/resnet50_weights_tf_dim_ordering_tf_kernels.h5')
 
 
 # Create your views here.
