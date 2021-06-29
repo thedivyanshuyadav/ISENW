@@ -60,8 +60,8 @@ def home(request):
 
 
 def result(request):
-    print(request.POST.get('camera'), request.session['camera'])
-    if request.POST.get('camera') or request.session['camera']:
+    print(request.POST.get('camera'), request.session.get('camera'))
+    if request.POST.get('camera') or request.session.get('camera'):
         if request.POST.get("camera"):
             img_arr = list(json.loads(request.POST['image']).values())
             request.session['image'] = request.POST['image']
