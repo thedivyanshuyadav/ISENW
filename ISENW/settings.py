@@ -49,6 +49,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
 ]
 
 ROOT_URLCONF = 'ISENW.urls'
@@ -132,3 +134,4 @@ UPLOAD_ROOT=os.path.join(BASE_DIR,'isenw_app/uploads')
 
 
 DATA_UPLOAD_MAX_MEMORY_SIZE = 52428800
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
