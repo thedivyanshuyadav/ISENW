@@ -25,7 +25,7 @@
     <div id="name">Divyanshu Yadav</div>
     <div class="top">
             <h1>{{ title |safe }}</h1>
-            <a href="http://127.0.0.1:8000/" id="back">BACK</a>
+            <a id="back" onclick="history.back()">BACK</a>
 
             <hr class="divider" noshade>
     </div>
@@ -41,22 +41,6 @@
         </div>
     </div>
 
-
-    <br/>
-{#    <div id="upperpred">#}
-{#        <div id="prediv">#}
-{#            <div class="info-img" id="uploadImgDiv">#}
-{#                <img src="{{ imgpath }}" id="uploadImg"/>#}
-{#            </div>#}
-{#            <div class="info-img" id="chartdiv">#}
-{#                <img src="{{ predictedPie }}" id="chart"/>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-{##}
-{#    <div id="info-parent">#}
-{#        <div id="info">{{ info |safe }}</div>#}
-{#    </div>#}
 
 </div>
 </body>
