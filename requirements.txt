@@ -56,7 +56,7 @@ soupsieve==2.2.1
 sqlparse==0.4.1
 tensorboard==2.2.2
 tensorboard-plugin-wit==1.8.0
-tensorflow==2.2.3
+tensorflow-cpu==2.2.3
 tensorflow-estimator==2.2.0
 termcolor==1.1.0
 typing-extensions==3.10.0.0
