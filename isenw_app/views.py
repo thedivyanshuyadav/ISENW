@@ -64,7 +64,7 @@ def result(request):
         else:
             img_arr = list(json.loads(request.session.get('image')).values())
 
-        img_arr = np.array(img_arr).reshape((480, 640, 4))
+        img_arr = np.array(img_arr).reshape((186, 224, 4))
         img_arr = img_arr[:, :, :-1]
         img = img_arr.astype(np.uint8)
         imge = Image.fromarray(img)

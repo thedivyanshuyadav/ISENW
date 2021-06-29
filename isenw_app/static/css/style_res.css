@@ -55,6 +55,7 @@
     margin-right: 50px;
     margin-left: auto;
     text-decoration: none;
+    cursor: pointer;
 }
 #back:hover {
     background: deepskyblue;

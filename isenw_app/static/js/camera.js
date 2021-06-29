@@ -23,7 +23,7 @@ video.addEventListener('loadedmetadata', function() {
 const constraints={
     audio:false,
     video:{
-        width:640,height:480
+        width:224,height:186
     },
 }
 
@@ -51,7 +51,7 @@ function handleSuccess(stream){
 
 const context=canvas.getContext('2d');
 snap.addEventListener("click",function (){
-    context.drawImage(video,0,0,640,480);
+    context.drawImage(video,0,0,224,186);
     canvas.style.display="block";
     go.style.display="block";
     retake.style.display="block";
@@ -89,7 +89,7 @@ go.addEventListener("click",function () {
     video.src="";
     window.stream.getTracks()[0].stop();
 
-    var imgData = context.getImageData(0, 0, 640, 480).data;
+    var imgData = context.getImageData(0, 0, 224, 186).data;
     var data={
             "csrfmiddlewaretoken": $("input[name=csrfmiddlewaretoken]").val(),
             "image":JSON.stringify(imgData),
@@ -120,7 +120,7 @@ span.onclick = function() {
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-  if (event.target == modal) {
+  if (event.target === modal) {
     modal.style.display = "none";
   }
 }
