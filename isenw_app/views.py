@@ -18,8 +18,8 @@ import requests
 
 wikipedia.set_lang("en")
 INPUT_SHAPE = (224, 224, 3)
-model = ResNet50(weights=None,put_shape=INPUT_SHAPE)
-model.load_weights('isenw_app/modelweight/xception_weight.h5')
+model = ResNet50(weights='imagenet',input_shape=INPUT_SHAPE)
+# model.load_weights('isenw_app/modelweight/xception_weight.h5')
 
 
 # Create your views here.
@@ -95,16 +95,16 @@ def result(request):
     predictions = model.predict(img)
     print(decode_predictions(predictions, top=10))
 
-    top_results = decode_predictions(predictions, top=3)
+    top_results = decode_predictions(predictions, top=4)
 
-    val = [top_results[0][0][2], top_results[0][1][2], top_results[0][2][2]]
-    lbl = [top_results[0][0][1], top_results[0][1][1], top_results[0][2][1]]
+    val = [top_results[0][0][2], top_results[0][1][2], top_results[0][2][2], top_results[0][3][2]]
+    lbl = [top_results[0][0][1], top_results[0][1][1], top_results[0][2][1], top_results[0][3][1]]
     fig, ax = plt.subplots(nrows=1, ncols=1)  # create figure & 1 axi
     color = ['orange', 'teal', 'red', 'skyblue']
-    lbl.append('Others')
-    val.append(0.1 - sum(val))
+    # lbl.append('Others')
+    # val.append(1 - sum(val))
     ax.bar(lbl, val, color=color)
-    ax.set_ylim(0.0, 0.1)
+    ax.set_ylim(0.0, 1.0)
     ax.set_title('Probability')
     ax.tick_params(axis='x', which='both', bottom=False, top=False, labelbottom=False)
     handles = [plt.Rectangle((0, 0), 1, 1, color=color[i]) for i in range(4)]
