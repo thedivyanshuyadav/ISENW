@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>ISENW</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Pacifico&family=Sarabun&family=Quicksand&family=Acme&family=Kanit&fdisplay=swap"
+            rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="{% static 'css/stylish.css' %}">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "favicon/apple-touch-icon.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "favicon/favicon-32x32.png" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "favicon/favicon-16x16.png" %}">
+    <link rel="manifest" href="{% static "favicon/site.webmanifest" %}">
+    <link rel="shortcut icon" href="{% static 'favicon/favicon.ico' %}"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+
+
+</head>
+<body>
+<div id="name">Divyanshu Yadav</div>
+<div class="top">
+    <h1>Image Search Engine<br>using Neural Networks</h1>
+</div>
+<div class="main">
+    <div class="form-div">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.image }}
+            <button type="submit" id="upload" name="filebtn">Go</button>
+        </form>
+    </div>
+
+    <div class="form-div">
+        <form method="post">
+            {% csrf_token %}
+            <input
+                    type="text"
+                    name="urltext"
+                    placeholder="Enter Image url here"
+                    id="input_url"
+                    autocomplete="off"
+            />
+            <button type="submit" id="upload" name="urlbtn">Go</button>
+        </form>
+    </div>
+
+    <div class="cameraForm">
+        <button id="useCamera">Use Camera</button>
+
+            <!-- The Modal -->
+            <div id="Modal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <br><canvas id="canvas" width="640" height="480"></canvas>
+                    <br>
+
+                    <div class="video-wrap">
+                        <video id="video" playsinline autoplay></video>
+                    </div>
+                    <div class="controller">
+                        <button id="snap">Capture</button>
+                        <button id="retake">Retake</button>
+                        <button id="go">Go</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+    </div>
+</div>
+<div class="bottom">
+
+</div>
+
+
+</body>
+<script src="{% static 'js/camera.js' %}"></script>
+
+</html>

@@ -1,0 +1,147 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+body{
+    height: 76vh;
+    padding-top:12vh ;
+    padding-bottom: 12vh;
+    background-color: #fefffe;
+}
+#name{
+    position: fixed;
+    right: 8%;
+    top: 45%;
+    width: max-content;
+    writing-mode: vertical-rl;
+    font-size: 18px;
+    font-family: Pacifico, sans-serif;
+    letter-spacing: 2px;
+}
+.top>h1{
+    font-variant: petite-caps;
+}
+.main{
+    padding-top: 5%;
+    padding-bottom: 5%;
+    text-align: center;
+}
+.main>div>form>*{
+    font-size: 18px;
+    border: none;
+}
+div + div{
+    margin: 10px;
+}
+form{
+    border: 2px solid #333333;
+    border-radius: 8px;
+    padding: 2px;
+    width: fit-content;
+    display: inline-block;
+}
+form>input{
+    width: 40vw !important;
+}
+
+button{
+    padding-inline: 15px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.cameraForm{
+    width: 50vw;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  max-width: 600px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.cameraForm{
+    display: inline-block;
+}
+#useCamera{
+    width: 40vw;
+    font-size: 18px;
+    border: 2px solid #333333;
+    border-radius: 8px;
+    padding-inline: 30px;
+}
+
+video{
+    width: -webkit-fill-available;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+.controller{
+    display: inline-flex;
+}
+canvas{
+    display: none;
+    width: -webkit-fill-available;
+}
+#snap{
+    font-size: 18px;
+    border: 2px solid #333333;
+    border-radius: 8px;
+    padding-inline: 30px;
+}
+#retake{
+    display: none;
+    font-size: 18px;
+    border: 2px solid #333333;
+    border-radius: 8px;
+    padding-inline: 30px;
+    margin-right: auto;
+    margin-left: 10px;
+}
+#go{
+    display: none;
+    font-size: 18px;
+    border: 2px solid #333333;
+    border-radius: 8px;
+    padding-inline: 30px;
+    margin-right: 10px;
+    margin-left: auto;
+}
+
+@media only screen and (max-width: 640px) {
+
+}

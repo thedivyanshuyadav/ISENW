@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>ISENW</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+
+    <link
+            href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Pacifico&family=Sarabun&family=Quicksand&family=Acme&family=Kanit&fdisplay=swap"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'css/style_res.css' %}">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "favicon/apple-touch-icon.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "favicon/favicon-32x32.png" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "favicon/favicon-16x16.png" %}">
+    <link rel="manifest" href="{% static "favicon/site.webmanifest" %}">
+    <link rel="shortcut icon" href="{% static 'favicon/favicon.ico' %}"/>
+</head>
+<body>
+
+<div class="content">
+    <div id="name">Divyanshu Yadav</div>
+    <div class="top">
+            <h1>{{ title |safe }}</h1>
+            <a href="http://127.0.0.1:8000/" id="back">BACK</a>
+
+            <hr class="divider" noshade>
+    </div>
+    <div class="main">
+        <div class="meta-info">
+            <img class="image" src="{{ imgpath }}">
+            <img class="chart" src="{{ predictedPie }}">
+        </div>
+        <div class="about">
+            <div class="info">
+                {{ info |safe }}
+            </div>
+        </div>
+    </div>
+
+
+    <br/>
+{#    <div id="upperpred">#}
+{#        <div id="prediv">#}
+{#            <div class="info-img" id="uploadImgDiv">#}
+{#                <img src="{{ imgpath }}" id="uploadImg"/>#}
+{#            </div>#}
+{#            <div class="info-img" id="chartdiv">#}
+{#                <img src="{{ predictedPie }}" id="chart"/>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{##}
+{#    <div id="info-parent">#}
+{#        <div id="info">{{ info |safe }}</div>#}
+{#    </div>#}
+
+</div>
+</body>
+</html>
