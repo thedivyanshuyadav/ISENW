@@ -50,6 +50,8 @@ def home(request):
         if valid:
             request.session['camera'] = False
             return redirect('result/')
+        else:
+            request.session['camera']=True
 
     context['form'] = form
     context['valid'] = valid
@@ -57,8 +59,8 @@ def home(request):
 
 
 def result(request):
-    print(request.POST.get('camera'), request.session['camera'])
-    if request.POST.get('camera') or request.session['camera']:
+    print(request.POST.get('camera'), request.session.get('camera'))
+    if request.POST.get('camera') or request.session.get('camera'):
         if request.POST.get("camera"):
             img_arr = list(json.loads(request.POST['image']).values())
             request.session['image'] = request.POST['image']
