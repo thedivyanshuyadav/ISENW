@@ -105,6 +105,7 @@ button{
     padding-inline: 30px;
 }
 
+/*noinspection ALL*/
 video{
     width: -webkit-fill-available;
     -webkit-transform: scaleX(-1);
@@ -113,6 +114,8 @@ video{
 .controller{
     display: inline-flex;
 }
+
+/*noinspection CssInvalidPropertyValue*/
 canvas{
     display: none;
     width: -webkit-fill-available;
