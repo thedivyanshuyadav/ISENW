@@ -1,0 +1,124 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#name {
+    position: fixed;
+    right: 8%;
+    top: 45%;
+    width: max-content;
+    writing-mode: vertical-rl;
+    font-size: 18px;
+    font-family: "Pacifico", serif;
+    letter-spacing: 2px;
+}
+.top{
+    background-color: #fefffe;
+    position: fixed;
+    top: 0;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    text-align: center;
+
+    height: 50px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.top>h1{
+
+    text-transform: uppercase;
+    background: linear-gradient(to right, black, dimgray, skyblue, deepskyblue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+        font-size: 1.5em;
+        margin: auto;
+        width: 100vw;
+        margin-left: 50px;
+}
+
+#back{
+    font-size: 20px;
+    font-family: "Sarabun",serif;
+    border: darkslategrey 2px solid;
+    border-radius: 10px;
+    max-height: 15px;
+    width: 40px;
+    padding: 10px 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 50px;
+    margin-left: auto;
+    text-decoration: none;
+}
+#back:hover {
+    background: deepskyblue;
+    color: white;
+    font-style: italic;
+}
+
+.main{
+    margin-top: 80px;
+}
+
+
+.meta-info{
+    text-align: center;
+}
+img{
+    min-width: 20vw;
+    min-height: 20vw;
+    max-width: 34vw;
+    max-height: 30vh;
+}
+
+
+.about {
+    display: flex;
+    justify-content: center;
+}
+.info {
+    width: 68%;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    font-size: 0.975em;
+    font-family: "Quicksand",serif;
+    padding: 25px 25px;
+    background: rgba(102, 218, 240, 0.06);
+}
+
+
+@media (max-width: 480px){
+    #name{
+        font-size: 0.7em;
+    }
+    .top{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .meta-info{
+        display: grid;
+        justify-content: center;
+    }
+    .meta-info>img{
+        min-width: 30vw;
+        min-height: 10vh;
+        max-width: 68vw;
+        max-height: 25vh;
+    }
+    .top>h1{
+    }
+    #back{
+        font-size: 0.7em;
+        width: 5px;
+    }
+    .info {
+        width: 75%;
+    }
+
+}
