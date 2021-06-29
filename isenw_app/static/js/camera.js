@@ -22,9 +22,10 @@ video.addEventListener('loadedmetadata', function() {
 
 const constraints={
     audio:false,
-    video:{
-        width:224,height:186
+    video: {
+        width:224,height:224
     },
+
 }
 
 
@@ -51,7 +52,7 @@ function handleSuccess(stream){
 
 const context=canvas.getContext('2d');
 snap.addEventListener("click",function (){
-    context.drawImage(video,0,0,224,186);
+    context.drawImage(video,0,0,224,224);
     canvas.style.display="block";
     go.style.display="block";
     retake.style.display="block";
@@ -89,7 +90,7 @@ go.addEventListener("click",function () {
     video.src="";
     window.stream.getTracks()[0].stop();
 
-    var imgData = context.getImageData(0, 0, 224, 186).data;
+    var imgData = context.getImageData(0, 0, 224, 224).data;
     var data={
             "csrfmiddlewaretoken": $("input[name=csrfmiddlewaretoken]").val(),
             "image":JSON.stringify(imgData),

@@ -23,7 +23,7 @@ model.load_weights('isenw_app/modelweight/resnet50_weights_tf_dim_ordering_tf_ke
 
 # Create your views here.
 def home(request):
-    valid = True
+    validCamera = True
     request.session.modified = True
     context = dict()
     form = ContentForm(request.POST or None, request.FILES or None)
@@ -34,6 +34,7 @@ def home(request):
             form.cleaned_data['bin_image'] = image.read()
             request.session['image_name'] = image._name
             request.session['image'] = form.cleaned_data['bin_image'].decode('ISO-8859-1')
+            validCamera=False
 
         elif 'urlbtn' in request.POST and request.POST['urltext']:
 
@@ -45,14 +46,16 @@ def home(request):
 
             except Exception as e:
                 if e.__dict__['response'] is None:
-                    valid = False
+                    validCamera = False
 
-        if valid:
+        if validCamera:
             request.session['camera'] = False
             return redirect('result/')
+        else:
+            request.session['camera']=True
 
     context['form'] = form
-    context['valid'] = valid
+    context['valid'] = validCamera
     return render(request, "home.html", context=context)
 
 
@@ -65,7 +68,7 @@ def result(request):
         else:
             img_arr = list(json.loads(request.session.get('image')).values())
 
-        img_arr = np.array(img_arr).reshape((186, 224, 4))
+        img_arr = np.array(img_arr).reshape((224, 224, 4))
         img_arr = img_arr[:, :, :-1]
         img = img_arr.astype(np.uint8)
         imge = Image.fromarray(img)

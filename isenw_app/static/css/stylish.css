@@ -145,6 +145,27 @@ canvas{
     margin-left: auto;
 }
 
-@media only screen and (max-width: 640px) {
-
+@media (max-width: 480px) {
+    form{
+        display: inline-flex;
+        width: -webkit-fill-available !important;
+    }
+    form>input{
+        width: -webkit-fill-available !important;
+    }
+    form>button{
+        padding-inline: 8px;
+    }
+    .cameraForm{
+        width: -webkit-fill-available !important;
+    }
+    .cameraForm>button{
+        width: -webkit-fill-available !important;
+    }
+    .controller{
+        width:-webkit-fill-available !important;
+    }
+    .controller>button{
+        margin:auto;
+    }
 }
