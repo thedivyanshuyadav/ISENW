@@ -1,1 +1,1 @@
-web: gunicorn Movie_Recommendation_System.wsgi
+web: gunicorn ISENW.wsgi
