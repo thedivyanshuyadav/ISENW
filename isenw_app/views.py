@@ -1,25 +1,23 @@
-import json
-from django.shortcuts import render, redirect
-from django.conf import settings
-from .forms import ContentForm
-from PIL import Image
 import io
+import json
 import os
 
 import matplotlib.pyplot as plt
-
-from tensorflow.keras.applications.resnet50 import ResNet50
-from tensorflow.keras.applications.resnet50 import preprocess_input
-from tensorflow.keras.applications.resnet50 import decode_predictions
 import numpy as np
-
-import wikipedia
 import requests
+import wikipedia
+from PIL import Image
+from django.conf import settings
+from django.shortcuts import render, redirect
+from tensorflow.keras.applications.resnet50 import ResNet50
+from tensorflow.keras.applications.resnet50 import decode_predictions
+from tensorflow.keras.applications.resnet50 import preprocess_input
+
+from .forms import ContentForm
 
 wikipedia.set_lang("en")
 INPUT_SHAPE = (224, 224, 3)
 model = ResNet50(weights='imagenet',input_shape=INPUT_SHAPE)
-# model.load_weights('isenw_app/modelweight/xception_weight.h5')
 
 
 # Create your views here.
@@ -76,21 +74,14 @@ def result(request):
         u_image = request.session['image'].encode("ISO-8859-1")
         print('[GOT IMAGE] : ', type(u_image))
         stream = io.BytesIO(u_image)
-        # img=image.img_to_array(stream)
+
         imge = Image.open(stream)
         img = np.array(imge)
-        # imge=img.copy()
 
     imge.save('isenw_app/uploads/image.png')
-    # size=model.input_shape[2]
-    img = preprocess_input(img)
-    # print(img.shape)
-    img = np.resize(img, (1,) + img.shape)
 
-    # img=np.array([img])
-    # print(type(img))
-    # print(img.shape)
-    # # print(model.summary())
+    img = preprocess_input(img)
+    img = np.resize(img, (1,) + img.shape)
 
     predictions = model.predict(img)
     print(decode_predictions(predictions, top=10))

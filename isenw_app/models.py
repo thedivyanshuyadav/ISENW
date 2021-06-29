@@ -1,6 +1,6 @@
 from django.db import models
-from camera_imagefield import CameraImageField
-from fractions import Fraction
+
+
 # Create your models here.
 class Content(models.Model):
     id=models.AutoField(primary_key=True,max_length=20,serialize=False)
