@@ -1,6 +1,0 @@
-requests
-tensorflow
-numpy
-Django
-matplotlib
-beautifulsoup4
