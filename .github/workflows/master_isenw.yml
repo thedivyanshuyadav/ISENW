@@ -40,4 +40,4 @@ jobs:
         app-name: 'isenw'
         slot-name: 'production'
         package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_1e31752644e8490da59a91c9296d2a77 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_9b62d9b788604aae84077baf223cbeed }}
