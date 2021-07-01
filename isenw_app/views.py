@@ -1,6 +1,7 @@
 import io
 import json
 import os
+from typing import Dict, Any, Union
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -23,10 +24,16 @@ model.load_weights('isenw_app/modelweight/resnet50_weights_tf_dim_ordering_tf_ke
 
 # Create your views here.
 def home(request):
-    validCamera = True
+    """
+    homepage view
+        :param request:
+        :return: redirect to result view
+    """
+    use_camera: bool=False
     request.session.modified = True
-    context = dict()
+    context= dict()
     form = ContentForm(request.POST or None, request.FILES or None)
+
     if request.method == "POST":
 
         if form.is_valid():
@@ -34,10 +41,8 @@ def home(request):
             form.cleaned_data['bin_image'] = image.read()
             request.session['image_name'] = image._name
             request.session['image'] = form.cleaned_data['bin_image'].decode('ISO-8859-1')
-            validCamera=False
-
+            print("[Upload]")
         elif 'urlbtn' in request.POST and request.POST['urltext']:
-
             url = request.POST['urltext']
             try:
                 contents = requests.get(url, stream=True).content
@@ -46,25 +51,27 @@ def home(request):
 
             except Exception as e:
                 if e.__dict__['response'] is None:
-                    validCamera = False
-
-        if validCamera:
-            request.session['camera'] = False
-            return redirect('result/')
+                    pass
+            print("[URL]")
         else:
-            request.session['camera']=True
+            use_camera=True
+            print("[CAMERA]")
 
-    context['form'] = form
-    context['valid'] = validCamera
-    return render(request, "home.html", context=context)
+        request.session['camera']=use_camera
+        return redirect('result/')
+    else:
+        context['form'] = form
+        return render(request, "home.html", context=context)
 
 
 def result(request):
-    print(request.POST.get('camera'), request.session.get('camera'))
+    print(request.POST.get('camera'),request.session.get('camera'))
     if request.POST.get('camera') or request.session.get('camera'):
         if request.POST.get("camera"):
             img_arr = list(json.loads(request.POST['image']).values())
             request.session['image'] = request.POST['image']
+            request.session['camera'] = True
+
         else:
             img_arr = list(json.loads(request.session.get('image')).values())
 
@@ -72,13 +79,11 @@ def result(request):
         img_arr = img_arr[:, :, :-1]
         img = img_arr.astype(np.uint8)
         imge = Image.fromarray(img)
-        request.session['camera'] = True
 
     else:
         u_image = request.session['image'].encode("ISO-8859-1")
         print('[GOT IMAGE] : ', type(u_image))
         stream = io.BytesIO(u_image)
-
         imge = Image.open(stream)
         img = np.array(imge)
 
@@ -86,7 +91,6 @@ def result(request):
 
     img = preprocess_input(img)
     img = np.resize(img, (1,) + img.shape)
-
     predictions = model.predict(img)
     print(decode_predictions(predictions, top=10))
 
